@@ -1,4 +1,4 @@
-package com.sapient.cc.constants;
+package com.cc.constants;
 
 public final class ApplicationConstants {
     private ApplicationConstants(){}

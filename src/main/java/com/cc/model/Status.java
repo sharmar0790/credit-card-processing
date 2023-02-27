@@ -1,4 +1,4 @@
-package com.sapient.cc.model;
+package com.cc.model;
 
 public class Status {
 

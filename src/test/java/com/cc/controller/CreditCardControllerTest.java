@@ -1,10 +1,10 @@
-package com.sapient.cc.controller;
+package com.cc.controller;
 
+import com.cc.constants.ApplicationConstants;
+import com.cc.controllers.CreditCardController;
+import com.cc.entity.CreditCard;
+import com.cc.service.CreditCardService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sapient.cc.constants.ApplicationConstants;
-import com.sapient.cc.controllers.CreditCardController;
-import com.sapient.cc.entity.CreditCard;
-import com.sapient.cc.service.CreditCardService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

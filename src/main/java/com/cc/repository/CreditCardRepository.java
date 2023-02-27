@@ -1,6 +1,6 @@
-package com.sapient.cc.repository;
+package com.cc.repository;
 
-import com.sapient.cc.entity.CreditCard;
+import com.cc.entity.CreditCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.sapient.cc.component;
+package com.cc.component;
 
 public final class LuhnAlgorithm {
     private LuhnAlgorithm() {

@@ -1,7 +1,7 @@
-package com.sapient.cc.service;
+package com.cc.service;
 
-import com.sapient.cc.entity.CreditCard;
-import com.sapient.cc.repository.CreditCardRepository;
+import com.cc.entity.CreditCard;
+import com.cc.repository.CreditCardRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

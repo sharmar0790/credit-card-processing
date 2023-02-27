@@ -1,9 +1,9 @@
-package com.sapient.cc.controllers;
+package com.cc.controllers;
 
-import com.sapient.cc.constants.ApplicationConstants;
-import com.sapient.cc.entity.CreditCard;
-import com.sapient.cc.model.Status;
-import com.sapient.cc.service.CreditCardService;
+import com.cc.constants.ApplicationConstants;
+import com.cc.entity.CreditCard;
+import com.cc.model.Status;
+import com.cc.service.CreditCardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -33,20 +33,23 @@ public class CreditCardController {
 
 
     @PostMapping(value = "/add")
+    @ExceptionHandler
     public ResponseEntity<Status> addCreditCard(@RequestBody final CreditCard creditCard) {
 
         boolean isValid = creditCard.validateCreditCardNumber();
+        try {
+            if (isValid && creditCard.getCardLimit() == 0) {
+                cardService.addCreditCard(creditCard);
+                Status status = new Status("Created", "Credit Cards Details are stored successfully.", 201);
+                return ResponseEntity.of(Optional.of(status));
+            } else {
+                LOG.error("Card Validation Failed for the card number {}", creditCard.getCardNumber());
+                Status status = new Status("Bad Request", "The Credit Card number you're truing to add is mot valid. Please check it and try again..", 400);
+                return ResponseEntity.of(Optional.of(status));
+            }
+        } catch (Exception e) {
 
-        if (isValid && creditCard.getCardLimit() == 0) {
-            cardService.addCreditCard(creditCard);
-            Status status = new Status("Created", "Credit Cards Details are stored successfully.", 201);
-            return ResponseEntity.of(Optional.of(status));
-        } else {
-            LOG.error("Card Validation Failed for the card number {}", creditCard.getCardNumber());
-            Status status = new Status("Bad Request", "The Credit Card number you're truing to add is mot valid. Please check it and try again..", 400);
-            return ResponseEntity.of(Optional.of(status));
         }
+        return null;
     }
-
-
 }

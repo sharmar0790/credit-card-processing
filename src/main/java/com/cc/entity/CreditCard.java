@@ -1,9 +1,9 @@
-package com.sapient.cc.entity;
+package com.cc.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sapient.cc.component.AppUtility;
-import com.sapient.cc.component.LuhnAlgorithm;
+import com.cc.component.AppUtility;
+import com.cc.component.LuhnAlgorithm;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.util.StringUtils;
 
